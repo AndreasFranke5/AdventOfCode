@@ -29,3 +29,4 @@ def read(path):
 path=os.path.join(os.path.dirname(__file__),'input')
 total = read(path)
 print(f"Total amount: {total}")
+
