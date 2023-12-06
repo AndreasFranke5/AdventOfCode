@@ -50,6 +50,6 @@ def check_file(file_name):
                 values.append(new_num)
     return values
 
-file_name = 'input.txt'
+file_name = 'input'
 new_values = check_file(file_name)
 print("Sum:", sum(new_values))
