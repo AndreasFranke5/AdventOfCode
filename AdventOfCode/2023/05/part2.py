@@ -44,13 +44,15 @@ def allseeds(nums, maps):
         srange=nums[i+1]
         step=int(math.sqrt(srange)) or 1
         print(f"Range {i//2+1}/{total} - Step: {step} - Start: {start} - Length: {srange}") # Prints progress to make sure that the program isn't stuck.
+        prevlow=float('inf')
         for seed in range(start, start+srange, step):
             pos=oneseed(seed, maps)
-            if pos<low:
-                low=pos
-                for refseed in range(max(seed-step, start), min(seed+step, start+srange)):
+            if pos<prevlow:
+                prevlow=pos
+                for refseed in range(max(seed-step, start), seed):
                     refpos = oneseed(refseed, maps)
                     low=min(low, refpos)
+                low=min(low, pos)
     return low
 path = os.path.join(os.path.dirname(__file__), 'input')
 with open(path, 'r') as file:
