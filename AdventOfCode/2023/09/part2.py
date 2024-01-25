@@ -1,7 +1,7 @@
 import os
 
 # Creates a difference table where each new row will be populated with the differences of the previous row.
-# Stops when when a row only contains one value, since each new row will contain one value less than the previous row.
+# Stops when a row only contains one value, since each new row will contain one value less than the previous row.
 def createDiffTable(seq):
     diffTable=[]
     currentRow=seq
@@ -27,7 +27,7 @@ def read(path):
     with open(path, 'r') as file:
         for line in file:
             seq=list(map(int, line.split()))
-            seq.reverse()
+ #           seq.reverse() # Activate this line for part 2
             table=createDiffTable(seq)
             nextVal=sumLastVal(table)
             total+=nextVal
