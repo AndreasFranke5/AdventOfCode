@@ -5,59 +5,55 @@ def read(path):
         return [list(line.strip()) for line in file.readlines()]
 
 def expandGrid(grid):
-    def is_all_dots(line):
+    def onlyDots(line):
         return all(cell == '.' for cell in line)
-
-    new_grid = []
-    for row in grid:
-        new_grid.append(row.copy())  # Copy the row to avoid modifying the original grid
-        if is_all_dots(row):
-            new_grid.append(row.copy())
-    grid = new_grid
-
-    transposed_grid = list(map(list, zip(*grid)))
     
-    new_transposed_grid = []
-    for col in transposed_grid:
-        new_transposed_grid.append(col)
-        if is_all_dots(col):
-            new_transposed_grid.append(list(col))
+    makeGrid=[]
+    for row in grid:
+        makeGrid.append(row.copy())
+        if onlyDots(row):
+            makeGrid.append(row.copy())
+    
+    grid=makeGrid
+    gridTransposed=list(map(list, zip(*grid)))
+    makeGridTransposed=[]
+    for col in gridTransposed:
+        makeGridTransposed.append(col)
+        if onlyDots(col):
+            makeGridTransposed.append(list(col))
+    
+    gridFinal=list(map(list,zip(*makeGridTransposed)))
+    return gridFinal
 
-    final_grid = list(map(list, zip(*new_transposed_grid)))
-    return final_grid  # Keep it as a list of lists
-
-def manhattan_distance(point1, point2):
-    return abs(point1[0] - point2[0]) + abs(point1[1] - point2[1])
+def mDist(p1,p2):
+    return abs(p1[0]-p2[0])+abs(p1[1]-p2[1])
 
 def distSum(grid):
-    # Replace '#' with unique numbers and store their positions
-    identifier = 1
-    positions = {}
-    for i, row in enumerate(grid):
-        for j, cell in enumerate(row):
+    id=1
+    pos={}
+    for i,row in enumerate(grid):
+        for j,cell in enumerate(row):
             if cell == '#':
-                grid[i][j] = identifier
-                positions[identifier] = (i, j)
-                identifier += 1
+                grid[i][j]=id
+                pos[id]=(i,j)
+                id+=1
+    
+    dists=[]
+    for id1,pos1 in pos.items():
+        for id2,pos2 in pos.items():
+            if id1<id2:
+                dist=mDist(pos1,pos2)
+                dists.append(dist)
+    
+    return sum(dists)
 
-    # Calculate all pairwise Manhattan distances
-    distances = []
-    for id1, pos1 in positions.items():
-        for id2, pos2 in positions.items():
-            if id1 < id2:
-                distance = manhattan_distance(pos1, pos2)
-                distances.append(distance)
+path=os.path.join(os.path.dirname(__file__), 'input')
+grid=read(path)
 
-    # Sum up all distances
-    return sum(distances)
-
-path = os.path.join(os.path.dirname(__file__), 'input')
-grid = read(path)
-
-expandedGrid = expandGrid(grid)
-totalDist = distSum(expandedGrid)
+expandedGrid=expandGrid(grid)
+totalDist=distSum(expandedGrid)
 
 for row in expandedGrid:
-    print(''.join(str(cell) for cell in row))  # Convert each cell to string for printing
+    print(''.join(str(cell) for cell in row))
 
 print(f"Total distance: {totalDist}")
