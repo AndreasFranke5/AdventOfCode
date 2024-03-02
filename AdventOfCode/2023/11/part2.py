@@ -26,7 +26,7 @@ def distSum(grid,expand=1000000):
             totalDist+=calculateDistance(p1,p2,eRow,eCol,expand)
     return totalDist
 
-path=os.path.join(os.path.dirname(__file__), 'input')
+path=os.path.join(os.path.dirname(__file__), 'input.txt')
 grid=read(path)
 
 totalDist=distSum(grid)

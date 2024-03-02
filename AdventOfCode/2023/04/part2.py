@@ -26,7 +26,7 @@ def read(path):
     total=sum(ticket_dict.values())
     return total
 
-path=os.path.join(os.path.dirname(__file__),'input')
+path=os.path.join(os.path.dirname(__file__),'input.txt')
 total = read(path)
 print(f"Total amount: {total}")
 

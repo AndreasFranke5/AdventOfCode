@@ -39,5 +39,5 @@ def result(data):
                 total+=int(adjacent[0]['val'])*int(adjacent[1]['val'])
     return total
 
-path=os.path.join(os.path.dirname(__file__),'input')
+path=os.path.join(os.path.dirname(__file__),'input.txt')
 print(f"Sum: {result(path)}")

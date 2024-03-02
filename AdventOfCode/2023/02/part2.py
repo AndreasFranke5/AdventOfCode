@@ -37,7 +37,7 @@ def powercalc(min_cubes):
         tot+=p
     return tot
 
-path=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input')
+path=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input.txt')
 with open(path, "r") as file:
     data = file.read()
 

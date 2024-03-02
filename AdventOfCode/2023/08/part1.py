@@ -2,7 +2,7 @@ import os
 from itertools import cycle
 from math import lcm
 
-path=os.path.join(os.path.dirname(__file__), 'input')
+path=os.path.join(os.path.dirname(__file__), 'input.txt')
 with open(path) as file:
     header,_,*l=file.read().splitlines()
 

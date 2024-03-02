@@ -45,7 +45,7 @@ def countMaxSteps(maze, start_x, start_y):
     return max(visited.values())
 
 if __name__=="__main__":
-    path=os.path.join(os.path.dirname(__file__), 'input')
+    path=os.path.join(os.path.dirname(__file__), 'input.txt')
     maze=read(path)
     start_x, start_y = startPos(maze)
     maxSteps=countMaxSteps(maze, start_x, start_y)

@@ -54,7 +54,7 @@ def allseeds(nums, maps):
                     low=min(low, refpos)
                 low=min(low, pos)
     return low
-path = os.path.join(os.path.dirname(__file__), 'input')
+path = os.path.join(os.path.dirname(__file__), 'input.txt')
 with open(path, 'r') as file:
     data = file.readlines()
 maps = read(data)

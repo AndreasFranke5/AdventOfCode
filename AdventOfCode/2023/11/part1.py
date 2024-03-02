@@ -47,7 +47,7 @@ def distSum(grid):
     
     return sum(dists)
 
-path=os.path.join(os.path.dirname(__file__), 'input')
+path=os.path.join(os.path.dirname(__file__), 'input.txt')
 grid=read(path)
 
 expandedGrid=expandGrid(grid)

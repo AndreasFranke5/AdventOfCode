@@ -31,7 +31,7 @@ def possible(games, rmax, gmax, bmax):
             pgames.append(id)
     return pgames
 
-path=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input')
+path=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'input.txt')
 with open(path, "r") as file:
     data=file.read()
 

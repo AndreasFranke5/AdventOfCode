@@ -29,6 +29,6 @@ def read(path):
                 total+=points
     return total
 
-path=os.path.join(os.path.dirname(__file__),'input')
+path=os.path.join(os.path.dirname(__file__),'input.txt')
 result=read(path)
 print(f"Points: {result}")

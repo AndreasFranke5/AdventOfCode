@@ -33,6 +33,6 @@ def read(path):
             total+=nextVal
     return total
 
-path=os.path.join(os.path.dirname(__file__),'input')
+path=os.path.join(os.path.dirname(__file__),'input.txt')
 total=read(path)
 print("Sum of extrapolated values:", total)

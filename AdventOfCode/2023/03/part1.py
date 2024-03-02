@@ -40,7 +40,7 @@ def result(grid,adjacent):
                 total+=int(found_match.group())
     return total
 
-path=os.path.join(os.path.dirname(__file__),'input')
+path=os.path.join(os.path.dirname(__file__),'input.txt')
 grid,symbol=read(path)
 adjacent_nums=adjacency(grid,symbol)
 print(f"Sum: {result(grid,adjacent_nums)}")

@@ -10,6 +10,6 @@ def nums(path):
                 total+=num
     return total
 dir=os.path.dirname(os.path.abspath(__file__))
-path=os.path.join(dir, 'input')
+path=os.path.join(dir, 'input.txt')
 total=nums(path)
 print("Sum:", total)

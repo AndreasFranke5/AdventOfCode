@@ -31,7 +31,7 @@ def oneseed(seed, maps):
         cval = mapping(cval, maps[mapname])
     return cval
 
-path=os.path.join(os.path.dirname(__file__),'input')
+path=os.path.join(os.path.dirname(__file__),'input.txt')
 with open(path, 'r') as file:
     data = file.readlines()
 maps = read(data)

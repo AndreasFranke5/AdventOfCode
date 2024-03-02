@@ -66,7 +66,7 @@ def countEnclosedTiles(maze, loopTiles):
     return enclosedCount
 
 if __name__=="__main__":
-    path=os.path.join(os.path.dirname(__file__),'input')
+    path=os.path.join(os.path.dirname(__file__),'input.txt')
     maze=read(path)
     startCol, startRow=findStart(maze)
     loopTiles=findLoop(maze, startCol, startRow)
